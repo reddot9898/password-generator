@@ -39,6 +39,24 @@ generateBtn.addEventListener("click", writePassword);
 
 var password = "";
 
+var passwordLength = function () {
+  // this function is allowing me to ask the user how long do they want there password to be
+  // as well as putting in an alert if the user chooses an incorrect length using alert
+  var lengthPass = prompt("Enter Length of New Password. Must Be Between 8 and 128 Characters Long.");
+
+  if (lengthPass < 8 || lengthPass > 128 || lengthPass === "") {
+    alert("Invalid Length Entry. Password Must Be Between 8 and 128 Characters.")
+
+    return passwordLength;
+  }
+
+  //this will turn my string into a number , again had to research this and still confused but trying to learn and understand it better
+  lengthPass = Math.floor(Number(lengthPass));
+
+  return lengthPass;
+}
+
+
 var generatePassword = function () {
   // password will be global and i can call on it 
   password = "";
@@ -57,5 +75,16 @@ var generatePassword = function () {
 
   return password;
 };
+
+
+
+
+
+
+
+
+
+
+
 
 
