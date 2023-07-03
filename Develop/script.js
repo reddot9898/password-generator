@@ -54,7 +54,7 @@ var passwordLength = function () {
 
 
 var generatePassword = function () {
-  // password will be global and i can call on it 
+
   password = "";
 
   var lengthPassword = passwordLength();
@@ -107,7 +107,9 @@ var charaInclusions = function () {
   //return users new password in text box
   return passwordInclusions;
 }
-
+// wanted to add in feature that after password was generated if you click button again it clears text box and starts prompting you again for new password
+// researched it and seems a bit out of reach at this moment and dont want to ruin what work i have so far 
+// so for now i will come back to this at a later date and make it even better 
 
 
 
