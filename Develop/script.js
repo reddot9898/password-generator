@@ -9,16 +9,8 @@ function writePassword() {
   passwordText.value = password;
   // do not touch this code
 }
-
-// Add event listener to generate button
-// all code i need to write goes here and only here
-generateBtn.addEventListener("click", writePassword);
-
-function generatePassword() {
-
-}
-
-// prompt how many characters
+// all my code goes here down and only here 
+//  need to prompt users how long they would like password to be
 // need a var for characters
 
 
@@ -39,3 +31,31 @@ function generatePassword() {
 
 
 // return password;
+
+
+
+
+generateBtn.addEventListener("click", writePassword);
+
+var password = "";
+
+var generatePassword = function () {
+  // password will be global and i can call on it 
+  password = "";
+
+
+  var lengthPassword = passwordLength();
+
+  //this function will determine my character sets , had to research a good bit of this 
+  // as we didnt touch on the math.floor or math.random 
+  var passwordInclusions = charaInclusions();
+  var passwordInclusionsLength = passwordInclusions.length;
+
+  for (var i = 0; i < lengthPassword; i++) {
+    password += passwordInclusions.charAt(Math.floor(Math.random() * passwordInclusionsLength));
+  }
+
+  return password;
+};
+
+
