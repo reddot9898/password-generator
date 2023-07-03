@@ -61,9 +61,7 @@ var generatePassword = function () {
   // password will be global and i can call on it 
   password = "";
 
-
   var lengthPassword = passwordLength();
-
   //this function will determine my character sets , had to research a good bit of this 
   // as we didnt touch on the math.floor or math.random 
   var passwordInclusions = charaInclusions();
@@ -76,6 +74,16 @@ var generatePassword = function () {
   return password;
 };
 
+// this function is going to determine what characters the password will be
+var charaInclusions = function () {
+  var passwordInclusions = "";
+
+  //all possible characters for unique password
+  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numbers = "0123456789";
+  // copied this last variable from online, couldnt type it without vs code getting mad . need to ask question about it and find out why
+  var specialChara = "~`!@#$%^&*+<?/;:(=)|{";
 
 
 
