@@ -1,33 +1,29 @@
-// Assignment Code
+
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  // do not touch this code
+  // ^^^^^^ do not touch this code ^^^^^^
 }
-// all my code goes here down and only here 
+// all my code goes here down 
+
+
 //  need to prompt users how long they would like password to be
+// need an alert for if the user inputs incorrect amount length of password
 // need a var for characters
-
-
 // what type of characters
 // special,number,upper,lower
 // window.confirm    confirming what user picked
 
 // to use answers to make password
 // need vars that include all possible characters
-// separate vars for each type, make them arrays
-// example var upperLetters = ["A", "B", "C", ] every letter in the alphabet and all numbers 0-1 as well as all special characters
+// separate vars for each type
+// need if statements to decide what to do if user selects yes or no to characters
 
-
-// take all true arrays and concat into new array
-// choose random chars from arrays based on user input
-// var push into new array
-// var password = turn array into string    .toString()
 
 
 // return password;
@@ -45,7 +41,7 @@ var passwordLength = function () {
   var lengthPass = prompt("Enter Length of New Password. Must Be Between 8 and 128 Characters Long.");
 
   if (lengthPass < 8 || lengthPass > 128 || lengthPass === "") {
-    alert("Invalid Length Entry. Password Must Be Between 8 and 128 Characters.")
+    alert("Invalid Entry. Password Must Be Between 8 and 128 Characters.")
 
     return passwordLength;
   }
@@ -62,7 +58,7 @@ var generatePassword = function () {
   password = "";
 
   var lengthPassword = passwordLength();
-  //this function will determine my character sets , had to research a good bit of this 
+  //this will determine my character sets , had to research a good bit of this 
   // as we didnt touch on the math.floor or math.random 
   var passwordInclusions = charaInclusions();
   var passwordInclusionsLength = passwordInclusions.length;
@@ -74,7 +70,9 @@ var generatePassword = function () {
   return password;
 };
 
-// this function is going to determine what characters the password will be
+// this is going to determine what characters the password will be
+// note for myself that had had trouble with "" and to ask the teacher. i think i understand now it means that if nothing is assigned to  example : passwordInclusions 
+// that it will default to blank ( empty) unless characters are added to it example : passwordInclusions taking var lowercase into the equation... i think...ASK TUESDAY !!!
 var charaInclusions = function () {
   var passwordInclusions = "";
 
@@ -82,9 +80,33 @@ var charaInclusions = function () {
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numbers = "0123456789";
-  // copied this last variable from online, couldnt type it without vs code getting mad . need to ask question about it and find out why
+  // copied this last var from online, couldnt type it without vs code getting mad . need to ask question about it and find out why
   var specialChara = "~`!@#$%^&*+<?/;:(=)|{";
 
+  //this will ask the user what characters they want to be in there password
+  // removed the window. and code still worked - would like to ask teacher why just confirm works and not window.confirm?
+  var confirmLower = window.confirm("Include Lower Case Characters?");
+  var confirmUpper = window.confirm("Include Upper Case Characters");
+  var confirmNumber = window.confirm("Include Numbers?");
+  var confirmSpecial = window.confirm("Include Special Characters?");
+
+  //this will confirm that whatever the user selected is actually going to be in the new password
+  if (confirmLower == true) {
+    passwordInclusions += lowerCase;
+  }
+  if (confirmUpper == true) {
+    passwordInclusions += upperCase;
+  }
+  if (confirmNumber == true) {
+    passwordInclusions += numbers;
+  }
+  if (confirmSpecial == true) {
+    passwordInclusions += specialChara;
+  }
+
+  //return users new password in text box
+  return passwordInclusions;
+}
 
 
 
